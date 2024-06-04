@@ -35,7 +35,7 @@
   }
 
   :root{
-    --main-color: #7541A3;
+    --main-color: #667EEA;
     --other-color:#212121;
     --second-color:#9e9e9e;
     --big-brand-name-font-size:60px;
@@ -260,7 +260,7 @@
     transition: 0.5s;
   }
   .about-text a:hover{
-    background-color: #5B3180;
+    background-color: #667EEA;
   }
   /* responsive Start */
 
