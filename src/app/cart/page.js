@@ -41,14 +41,14 @@ function page() {
     // Start the message with a greeting
 
     const getUrlFromSlug =(slug)=>{
-      return "https://gwm-drafts-showcase.vercel.app/product/"+ slug
+      return "https://gwm-drafts-showcase-5.vercel.app/product/"+ slug
     }
     let message = "Hello, I'd like to buy:\n\n";
   
     // Add each product to the message
     Object.keys(cart).forEach(slug => {
       let product = cart[slug]
-      message += `${product.name} \n(${products.find(product => product.slug === slug)?.code}, ₹${product.price}, Qty: ${product.qty})\n\n${getUrlFromSlug(product.slug)}\n\n`;
+      message += `${product.name} \n(${products.find(product => product.slug === slug)?.code}, ₹${product.price}, Qty: ${product.qty})\n\n${getUrlFromSlug(slug)}\n\n`;
 
     });
   
