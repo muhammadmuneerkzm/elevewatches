@@ -153,7 +153,7 @@ export default function Navbar() {
       const encodedMessage = encodeURIComponent(message);
     
       // Generate the WhatsApp link
-      return `https://wa.me/+918733966617?text=${encodedMessage}`;
+      return `https://wa.me/+917510945001?text=${encodedMessage}`;
     }
   return (
     <>
