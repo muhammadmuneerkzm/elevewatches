@@ -139,7 +139,7 @@ export default function Navbar() {
       // Start the message with a greeting
   
       const getUrlFromSlug =(slug)=>{
-        return "https://gwm-drafts-showcase.vercel.app/product/"+ slug
+        return "https://gwm-drafts-showcase-5.vercel.app/product/"+ slug
       }
       let message = "Hello, I'd like to buy:\n\n";
     
