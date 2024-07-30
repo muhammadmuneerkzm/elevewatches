@@ -42,7 +42,7 @@ export default function page() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <a
-            href="tel:+917510945001"
+            href="tel:+917736622884"
             className="bg-[#212121] p-6 rounded-xl flex flex-col items-center transition transform cursor-pointer"
           >
             <i className="bx bxs-phone text-primary-500 text-5xl mb-4"></i>
@@ -60,7 +60,7 @@ export default function page() {
             <p className="text-gray-400">Follow us on Instagram</p>
           </a>
           <a
-            href="mailto:smozoutlet@gmail.com"
+            // href="mailto:smozoutlet@gmail.com"
             className="bg-[#212121] p-6 rounded-xl flex flex-col items-center transition transform  cursor-pointer"
           >
             <i className="bx bxs-envelope text-primary-500 text-5xl mb-4"></i>
