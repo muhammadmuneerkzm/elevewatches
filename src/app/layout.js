@@ -30,7 +30,6 @@ export default function RootLayout({ children , params}) {
 
   useEffect(() => {
     // router.events.on('routeChangeComplete', (url) => {
-    //   console.log(`completely routed to ${url}`);
     // });
   }, []);
   return (

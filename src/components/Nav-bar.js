@@ -48,7 +48,6 @@ export default function Navbar() {
       });
 
       let data = await res.json();
-      console.log(data);
       if (data.success) {
         dispatch(setUser({ email: data.email, token: token, name: data.name }));
       } else {
@@ -232,7 +231,7 @@ export default function Navbar() {
 
           <li>
             <Link href="/about">
-              <i class='bx bx-info-circle'></i>
+              <i className='bx bx-info-circle'></i>
               <span className="links_name">About</span>
             </Link>
             <span className="tooltip">About</span>
@@ -264,13 +263,13 @@ export default function Navbar() {
 
           {/* <li>
             <Link href="/myorders">
-              <i class="bx bx-purchase-tag-alt"></i>
+              <i className="bx bx-purchase-tag-alt"></i>
               <span className="links_name">My Orders</span>
             </Link>
             <span className="tooltip">My Orders</span>
           </li> */}
 
-          <li>
+          <li key={"cart"}>
             <Link href="/cart">
               <i className="bx bx-cart"></i>
               <span className="links_name">Cart</span>

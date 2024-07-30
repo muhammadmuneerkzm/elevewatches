@@ -4,14 +4,10 @@ import Product from "../../../models/Product";
 import InterFace from "./interface"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Head from "next/head";
 
 
 export default async function Page({params}) {
     let slug = params.slug;
-    // let product = await GetProductData(slug)
-    // product = JSON.parse(JSON.stringify(product))
-
 
       let products = [
         { brand: "Nibosi", code: "NW4467648", name: "NIBOSI Watch for Men Fashion Business Men Watches Ultra-Thin Waterproof Chronograph Quartz Watches with Stainless Steel Band",  slug: "nibosi-watch-for-men-fashion-business-men-watches-ultra-thin-waterproof-chronograph-quartz-watches-with-stainless-steel-band", price: 2999, image: "/watches/w1.png" },
@@ -25,8 +21,6 @@ export default async function Page({params}) {
 
     let product = products.find(product => product.slug === slug);
     
-    console.log("product ,", product)
-    // const notify = () => toast("Wow so easy!");
 
 
 
@@ -36,15 +30,4 @@ export default async function Page({params}) {
             <InterFace product={product}/>
         </>
     )
-}
-
-import { GetServerSideProps } from 'next'
-
-const GetProductData = async (slug) => {
-mongoose.connect('mongodb://localhost:27017/smoz')
-.then(() => console.log('Connected to MongoDB'))
-.catch((error) => console.error('MongoDB connection error:', error));
-const product = await Product.find({slug : slug});
-console.log(product)
-return product
 }

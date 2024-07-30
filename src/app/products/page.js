@@ -1,29 +1,17 @@
 "use client";
 
-import mongoose from "mongoose";
 import Link from "next/link";
-import Product from "../../models/Product";
-// import "../../styles/productCard.css";
-import {
-  addToCart,
-  removeFromCart,
-  open,
-} from "../../lib/features/cart/cartSlice";
-import { useAppDispatch, useAppSelector } from "../../lib/hooks";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import AddToCart from "./AddToCart";
-import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { useEffect, useState } from "react";
-export default async function Page() {
+export default function Page() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-const limit = 35
+const limit = 40
 
 
 function truncate(str) {
@@ -60,11 +48,11 @@ let products = [
 
 <div className="cards-wrapper-outer px-2 md:px-4 py-8">
   <div className="grid gap-2 md:gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-     {[...Array(6)].map((_, index) => (
+     {/* {[...Array(6)].map((_, index) => ( */}
 <>
 {products.map((product) => {
   return (
-    <div key={product.id} className="card flex flex-col bg-[#1e1c1c] rounded-md pb-3">
+    <div key={product.slug} className="card flex flex-col bg-[#1e1c1c] rounded-md pb-3">
       <Link href={`/product/${product.slug}`}>
       <div className="imageSection py-2 aspect-w-1 aspect-h-1">
         <img src={product.image} alt={product.name} className="w-full h-full object-cover rounded-t-md" />
@@ -83,7 +71,7 @@ let products = [
   );
 })}
 </>
-     ))}
+     {/* ))} */}
   </div>
 </div>
 

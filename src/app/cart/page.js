@@ -17,7 +17,6 @@ function page() {
     const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    console.log("CART: ", cart)
     setIsMounted(true);
   }, []);
   const limit = 40
@@ -92,7 +91,7 @@ function page() {
     <>
       <h1 className="md:hidden text-2xl text-center py-5 font-semibold">My cart</h1>
       <div className=" min-h-screen flex flex-col pb-20 md:pb-28">
-        <div className="container mx-auto flex flex-col flex-1 p-2 h-fit">
+        <div key={"cart"} className="container mx-auto flex flex-col flex-1 p-2 h-fit">
 
         { Object.keys(cart).length != 0 ? <>
           <div className="hidden text-lg md:grid gap-0" style={{gridTemplateColumns : '1fr 3fr 1fr 1.5fr 1.5fr'}}>
@@ -140,7 +139,7 @@ function page() {
     return(
       <>
                 {/* Sample product row */}
-                <div className="hidden w-full gap-0 md:grid py-4 items-center" style={{gridTemplateColumns : '1fr 3fr 1fr 1.5fr 1.5fr'}}>
+                <li key={product} className="hidden w-full gap-0 md:grid py-4 items-center" style={{gridTemplateColumns : '1fr 3fr 1fr 1.5fr 1.5fr'}}>
               <div className="md:ml-2 md:p-0 lg:p-4 flex items-center md:col-span-1">
                 <div className="lg:w-1/3 md:w-1/6 flex justify-center">
                 <i className="bx bx-x  text-red-500 text-md mr-2 cursor-pointer"   onClick={() => {
@@ -191,7 +190,7 @@ function page() {
                         </span></div>
               <div className="p-4 md:col-span-1">{product.price * product.qty}</div>
   
-            </div>
+            </li>
   
             <div className="flex justify-center">
     <div className="h-0.5 w-[85%] bg-gray-800"></div>

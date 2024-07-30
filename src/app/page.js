@@ -17,7 +17,6 @@ export default function Page() {
     setIsMounted(true);
   }, []);
   useEffect(() => {
-    console.log(percentage);
   }, [percentage]);
 
 
@@ -115,7 +114,7 @@ export default function Page() {
           <div className="hero-text">
             <span className="first-text">Welcome to</span>
             <span>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
                 WatchStore
               </span>
 
@@ -138,24 +137,24 @@ export default function Page() {
 
         <div className=" relative counter-top-wrapper mx-auto text-white md:w-[70%] bg-[#000] rounded-xl mb-12 lg:px-12 py-16 pt-28 lg:grid lg:grid-cols-3 md:flex md:items-center md:justify-center w-[90%]">
           <div id="clock-wrapper" className="left-auto w-full flex justify-center items-start">
-            <div class="clock">
-              <div class="numbers">
+            <div className="clock">
+              <div className="numbers">
                 <div>
                   <span style={{ '--i': 0 }}><b>12</b></span>
                   <span style={{ '--i': 1 }}><b>3</b></span>
                   <span style={{ '--i': 2 }}><b>6</b></span>
                   <span style={{ '--i': 3 }}><b>9</b></span>
                 </div>
-                <div class="circle" id="hr" ref={hrRef}><i></i></div>
-                <div class="circle" id="mn" ref={mnRef}><i></i></div>
-                <div class="circle" id="sc" ref={scRef}><i></i></div>
+                <div className="circle" id="hr" ref={hrRef}><i></i></div>
+                <div className="circle" id="mn" ref={mnRef}><i></i></div>
+                <div className="circle" id="sc" ref={scRef}><i></i></div>
               </div>
             </div>
           </div>
 
           {[{ title: "Customers", count: "5000" }, { title: "Products", count: "1000" }, { title: "Years of experience", count: "3" }].map((item) => {
             return (
-              <div className="item flex flex-col items-center justify-center">
+              <div key={item} className="item flex flex-col items-center justify-center">
                 <div className="wrapper py-4 flex items-center justify-center flex-col">
                   <div className="relative font-semibold number-counter text-4xl bg-clip-text text-transparent bg-gradient-to-br from-primary-300 to-secondary-700 ">
                     {item.count} <div className="absolute top-0 text-lg -right-4 text-white">+</div>
@@ -232,23 +231,23 @@ export default function Page() {
  
 
 {/* 
-        <div class="container-wrap-hero py-12">
-          <div class="conainer-box max-w-xl">
-            <i class="bx bxs-phone text-primary-500"></i>
-            <h1 class="text-white">+91 87339 66617</h1>
-            <p class="text-white">Call For Order</p>
+        <div className="container-wrap-hero py-12">
+          <div className="conainer-box max-w-xl">
+            <i className="bx bxs-phone text-primary-500"></i>
+            <h1 className="text-white">+91 87339 66617</h1>
+            <p className="text-white">Call For Order</p>
           </div>
 
-          <div class="conainer-box">
-            <i class="bx bxs-map text-primary-500"></i>
-            <h1 class="text-white">111-111-11</h1>
-            <p class="text-white">Call For Order</p>
+          <div className="conainer-box">
+            <i className="bx bxs-map text-primary-500"></i>
+            <h1 className="text-white">111-111-11</h1>
+            <p className="text-white">Call For Order</p>
           </div>
 
-          <div class="conainer-box">
-            <i class="bx bxs-timer text-primary-500"></i>
-            <h1 class="text-white">111-111-11</h1>
-            <p class="text-white">Call For Order</p>
+          <div className="conainer-box">
+            <i className="bx bxs-timer text-primary-500"></i>
+            <h1 className="text-white">111-111-11</h1>
+            <p className="text-white">Call For Order</p>
           </div>
         </div> */}
 
@@ -293,15 +292,15 @@ export default function Page() {
 
 
       
-          <section class="aboutContainer" id="about">
-            <div class="about">
-              <div class="about-img">
+          <section className="aboutContainer" id="about">
+            <div className="about">
+              <div className="about-img">
                 <img src="/stocks/shoe-hero-1.png" />
               </div>
-              <div class="about-text">
+              <div className="about-text">
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel reprehenderit eveniet fuga! Iusto a rem perspiciatis officia. Itaque ab ea expedita obcaecati consequatur numquam necessitatibus corporis illum at quod dolores hic quis, non pariatur assumenda labore, cumque cum laboriosam. Placeat repellendus, sunt a molestiae provident voluptas suscipit molestias accusamus, maiores iure esse reprehenderit neque distinctio et, quidem commodi. Aspernatur, aliquam.</p>
                 <br />
-                <a href="/products" class="btn btn-about">Shop Now</a>
+                <a href="/products" className="btn btn-about">Shop Now</a>
               </div>
             </div>
           </section>

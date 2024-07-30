@@ -59,12 +59,10 @@ export default function InterFace(props) {
 
   let product = props.product
   const router = useRouter()
-  console.log("Product" , product)
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart.items);
 
   const handleAddToCart = (itemCode, qty, price,name, size, variant) => {
-    // console.log( itemCode, qty, price, name, size, variant )
     toast.success("Added to cart!",{ position: "bottom-center", theme: 'dark'});
     dispatch(open({}))
     dispatch(addToCart({ itemCode, qty, price, name, size, variant }));
@@ -89,7 +87,7 @@ export default function InterFace(props) {
 <section className="text-gray-400 bg-[#111] body-font overflow-hidden">
 {/* <button className="rounded-full w-10 h-10 bg-gray-800 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4"> */}
             {/* <i className='bx bx-cart'></i> */}
-            <i class='bx bxs-left-arrow-circle absolute text-lg p-2'  onClick={() => router.back()}></i>
+            <i className='bx bxs-left-arrow-circle absolute text-lg p-2'  onClick={() => router.back()}></i>
             {/* <AddToCart /> */}
           {/* </button> */}
   <div className="container px-5 mx-auto">
