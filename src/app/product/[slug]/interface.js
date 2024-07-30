@@ -6,6 +6,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation';
 import Head from "next/head";
+
+
+import Data from "../../../data/adminData"
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
@@ -38,7 +41,7 @@ export default function InterFace(props) {
     // Start the message with a greeting
 
     const getUrlFromSlug =(slug)=>{
-      return "https://gwm-drafts-showcase-5.vercel.app/product/"+ slug
+      return Data.url + slug
     }
     let message = "Hello, I'd like to buy:\n\n";
   
@@ -51,7 +54,7 @@ export default function InterFace(props) {
     const encodedMessage = encodeURIComponent(message);
   
     // Generate the WhatsApp link
-    return `https://wa.me/+917510945001?text=${encodedMessage}`;
+    return `https://wa.me/${Data.phone}?text=${encodedMessage}`;
   }
 
   let product = props.product

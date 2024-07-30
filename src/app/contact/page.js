@@ -46,7 +46,7 @@ export default function page() {
             className="bg-[#212121] p-6 rounded-xl flex flex-col items-center transition transform cursor-pointer"
           >
             <i className="bx bxs-phone text-primary-500 text-5xl mb-4"></i>
-            <h1 className="text-white text-lg font-semibold mb-2">+91 75109 45001</h1>
+            <h1 className="text-white text-lg font-semibold mb-2">+91 81579 10927</h1>
             <p className="text-gray-400">Call for Orders</p>
           </a>
           <a
@@ -56,7 +56,7 @@ export default function page() {
             className="bg-[#212121] p-6 rounded-xl flex flex-col items-center transition transform  cursor-pointer"
           >
             <i className="bx bxl-instagram text-primary-500 text-5xl mb-4"></i>
-            <h1 className="text-white text-lg font-semibold mb-2">@smoz_manjeri</h1>
+            <h1 className="text-white text-lg font-semibold mb-2">@watchstore</h1>
             <p className="text-gray-400">Follow us on Instagram</p>
           </a>
           <a
@@ -64,7 +64,7 @@ export default function page() {
             className="bg-[#212121] p-6 rounded-xl flex flex-col items-center transition transform  cursor-pointer"
           >
             <i className="bx bxs-envelope text-primary-500 text-5xl mb-4"></i>
-            <h1 className="text-white text-lg font-semibold mb-2">smozoutlet@gmail.com</h1>
+            <h1 className="text-white text-lg font-semibold mb-2">contact@watchstore.com</h1>
             <p className="text-gray-400">Email us for support</p>
           </a>
         </div>

@@ -17,6 +17,8 @@ import {
 } from "../lib/features/cart/cartSlice";
 var jwt = require("jsonwebtoken");
 
+import Data from "../data/adminData"
+
 export default function Navbar() {
   const [btn_one, setBtn_one] = useState("active");
   const [btn_two, setBtn_two] = useState("");
@@ -55,6 +57,7 @@ export default function Navbar() {
     };
 
     token = localStorage.getItem("token");
+    // console.log(Data)
     if (token) {
       fetchUserData();
     }
@@ -125,43 +128,43 @@ export default function Navbar() {
 
 
   let products = [
-    { brand: "Nibosi", code: "NW4467648", name: "NIBOSI Watch for Men Fashion Business Men Watches Ultra-Thin Waterproof Chronograph Quartz Watches with Stainless Steel Band",  slug: "nibosi-watch-for-men-fashion-business-men-watches-ultra-thin-waterproof-chronograph-quartz-watches-with-stainless-steel-band", price: 2999, image: "/watches/w1.png" },
-    { brand: "Fossil", code: "FM6471572", name: "Fossil Men Leather Grant Sport Analog Blue Dial Watch-Fs5237, Band Color-Blue",  slug: "fossil-men-leather-grant-sport-analog-blue-dial-watch-fs5237-band-color-blue", price: 7497, image: "/watches/w2.png" },
-    { brand: "Armani", code: "AE3319243", name: "Armani Exchange Silicone Analog White Dial Men Watch-Ax4160, White Band",  slug: "armani-exchange-silicone-analog-white-dial-men-watch-ax4160-white-band",  price: 9995, image: "/watches/w3.png" },
-    { brand: "Tommy Hilfiger", code: "TH8888629", name: "Tommy Hilfiger Analog Blue Dial Men's Watch ",  slug: "tommy-hilfiger-analog-blue-dial-men-s-watch", price: 11900, image: "/watches/w4.png" },
-    { brand: "Fastrack", code: "FA9204251", name: "Fastrack Analog Unisex-Adult Watch ",  slug: "fastrack-analog-unisex-adult-watch",  price: 804, image: "/watches/w5.png" },
-    { brand: "Timex", code: "TA7251169", name: "TIMEX Analog Black Dial Men's Watch",  slug: "timex-analog-black-dial-men-s-watch",  price: 2645, image: "/watches/w6.png" },
-    { brand: "Timex", code: "TM1228868", name: "Timex Men Stainless Steel E-Class Surgical Steel Charge Chronograph Analog Black Dial Watch",  slug: "timex-men-stainless-steel-e-class-surgical-steel-charge-chronograph-analog-black-dial-watch",  price: 6897, image: "/watches/w7.png" }
-    ]
+    { brand: "Nibosi", code: "NW4467648", name: "NIBOSI Watch for Men Fashion Business Men Watches Ultra-Thin Waterproof Chronograph Quartz Watches with Stainless Steel Band", slug: "nibosi-watch-for-men-fashion-business-men-watches-ultra-thin-waterproof-chronograph-quartz-watches-with-stainless-steel-band", price: 2999, image: "/watches/w1.png" },
+    { brand: "Fossil", code: "FM6471572", name: "Fossil Men Leather Grant Sport Analog Blue Dial Watch-Fs5237, Band Color-Blue", slug: "fossil-men-leather-grant-sport-analog-blue-dial-watch-fs5237-band-color-blue", price: 7497, image: "/watches/w2.png" },
+    { brand: "Armani", code: "AE3319243", name: "Armani Exchange Silicone Analog White Dial Men Watch-Ax4160, White Band", slug: "armani-exchange-silicone-analog-white-dial-men-watch-ax4160-white-band", price: 9995, image: "/watches/w3.png" },
+    { brand: "Tommy Hilfiger", code: "TH8888629", name: "Tommy Hilfiger Analog Blue Dial Men's Watch ", slug: "tommy-hilfiger-analog-blue-dial-men-s-watch", price: 11900, image: "/watches/w4.png" },
+    { brand: "Fastrack", code: "FA9204251", name: "Fastrack Analog Unisex-Adult Watch ", slug: "fastrack-analog-unisex-adult-watch", price: 804, image: "/watches/w5.png" },
+    { brand: "Timex", code: "TA7251169", name: "TIMEX Analog Black Dial Men's Watch", slug: "timex-analog-black-dial-men-s-watch", price: 2645, image: "/watches/w6.png" },
+    { brand: "Timex", code: "TM1228868", name: "Timex Men Stainless Steel E-Class Surgical Steel Charge Chronograph Analog Black Dial Watch", slug: "timex-men-stainless-steel-e-class-surgical-steel-charge-chronograph-analog-black-dial-watch", price: 6897, image: "/watches/w7.png" }
+  ]
 
 
-    function generateWhatsAppLink(cart) {
-      // Start the message with a greeting
-  
-      const getUrlFromSlug =(slug)=>{
-        return "https://gwm-drafts-showcase-5.vercel.app/product/"+ slug
-      }
-      let message = "Hello, I'd like to buy:\n\n";
-    
-      // Add each product to the message
-      Object.keys(cart).forEach(slug => {
-        let product = cart[slug]
-        message += `${product.name} \n(${products.find(product => product.slug === slug)?.code}, ₹${product.price}, Qty: ${product.qty})\n\n${getUrlFromSlug(slug)}\n\n`;
-      });
-    
-      // Encode the message
-      const encodedMessage = encodeURIComponent(message);
-    
-      // Generate the WhatsApp link
-      return `https://wa.me/+917510945001?text=${encodedMessage}`;
+  function generateWhatsAppLink(cart) {
+    // Start the message with a greeting
+
+    const getUrlFromSlug = (slug) => {
+      return Data.url + slug
     }
+    let message = "Hello, I'd like to buy:\n\n";
+
+    // Add each product to the message
+    Object.keys(cart).forEach(slug => {
+      let product = cart[slug]
+      message += `${product.name} \n(${products.find(product => product.slug === slug)?.code}, ₹${product.price}, Qty: ${product.qty})\n\n${getUrlFromSlug(slug)}\n\n`;
+    });
+
+    // Encode the message
+    const encodedMessage = encodeURIComponent(message);
+
+    // Generate the WhatsApp link
+    return `https://wa.me/${Data.phone}?text=${encodedMessage}`;
+  }
   return (
     <>
       <div className={`sidebar ${side_bar_state}`}>
         <div className="logo-details">
           {/* <div className="style-gradient"></div> */}
           <i className="bx bxs-watch icon"></i>
-          <div className="logo_name pt-1">Smoz</div>
+          <div className="logo_name pt-1">WatchStore</div>
           <i
             onClick={() => {
               SideClickHandler();
@@ -218,22 +221,22 @@ export default function Navbar() {
             <span className="tooltip">Trending</span>
           </li> */}
 
-<li>
-  <Link href="/contact">
-    <i className="bx bx-phone"></i>
-    <span className="links_name">Contact</span>
-  </Link>
-  <span className="tooltip">Contact</span>
-</li>
+          <li>
+            <Link href="/contact">
+              <i className="bx bx-phone"></i>
+              <span className="links_name">Contact</span>
+            </Link>
+            <span className="tooltip">Contact</span>
+          </li>
 
 
-<li>
-  <Link href="/about">
-  <i class='bx bx-info-circle'></i>
-    <span className="links_name">About</span>
-  </Link>
-  <span className="tooltip">About</span>
-</li>
+          <li>
+            <Link href="/about">
+              <i class='bx bx-info-circle'></i>
+              <span className="links_name">About</span>
+            </Link>
+            <span className="tooltip">About</span>
+          </li>
 
           {/* <li>
             <Link href="/">
@@ -325,98 +328,88 @@ export default function Navbar() {
           ></i>
         </div>
         <div id="mainTitle">
-          Smoz
+          WatchStore
         </div>
         {/* <div className="Brand-name">
           <b>B</b>rand
         </div> */}
         <div className="search-icon">
           {/* <i className="bx bx-search cursor-pointer"></i> */}
-          <i onClick={(e) => { e.preventDefault(); toggleCart();  }}
+          <i onClick={(e) => { e.preventDefault(); toggleCart(); }}
             className="bx bx-cart cursor-pointer"
           ></i>
         </div>
 
         {/* Cart side bar */}
-        <div
-          ref={ref}
-          className={`cart-sidebar cart-side absolute top-full overflow-y-scroll pb-24 right-0 ml-1 transition-transform ${
-            openStateCart ? "cartOpen" : "cartClose"
-          }`}
-        >
-          <i
-            onClick={toggleCart}
-            className="bx bx-x absolute right-0 m-3 text-2xl cursor-pointer"
-          ></i>
-
-          {/* bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600 */}
-          <h3 className="mt-12 mb-6 font-bold text-center text-gray-700">
-            Shopping Cart
-          </h3>
+        <div ref={ref} className={`cart-sidebar cart-side absolute top-full overflow-y-scroll pb-24 right-0 ml-1 transition-transform ${openStateCart ? "cartOpen" : "cartClose"}`}>
+          <i onClick={toggleCart} className="bx bx-x absolute right-0 m-3 text-2xl cursor-pointer"  ></i>
+          <h3 className="mt-8 mb-6 font-bold text-center text-gray-700"> Shopping Cart </h3>
           <hr />
+          <div className="list-container">
 
-          <ol className="list-decimal">
-            {Object.keys(cart).map((i) => {
-              return (
-                <li key={i} className="cart-item">
-                  <i  onClick={() => {
-                            handleRemoveFromCart(
-                              i,
-                              cart[i].qty,
-                              cart[i].price,
-                              cart[i].name,
-                              cart[i].variant,
-                              cart[i].size
-                            );
-                          }} className="bx bx-x absolute right-0 top-0 text-base my-1 text-red-500 cursor-pointer"></i>
-                     <img
-            src={products.find(product => product.slug === i)?.image}
-            alt={cart[i].name}
-          />       <div className="info flex flex-col justify-between">
-                    <h6 className="text-sm pt-1">{cart[i].name}</h6>
-                    <div className="content">
-                      <span className="qty text-sm">
-                        <i
-                          className="bx bxs-minus-square"
-                          onClick={() => {
-                            handleRemoveFromCart(
-                              i,
-                              1,
-                              cart[i].price,
-                              cart[i].name,
-                              cart[i].variant,
-                              cart[i].size
-                            );
-                          }}
-                        ></i>
-                        {cart[i].qty}
-                        <i
-                          className="bx bxs-plus-square"
-                          onClick={() => {
-                            handleAddToCart(
-                              i,
-                              1,
-                              cart[i].price,
-                              cart[i].name,
-                              cart[i].variant,
-                              cart[i].size
-                            );
-                          }}
-                        ></i>
-                      </span>
-                      <div className="price">₹{cart[i].price}</div>
+            <ol className="list-decimal">
+              {Object.keys(cart).map((i) => {
+                return (
+                  <li key={i} className="cart-item">
+                    <i onClick={() => {
+                      handleRemoveFromCart(
+                        i,
+                        cart[i].qty,
+                        cart[i].price,
+                        cart[i].name,
+                        cart[i].variant,
+                        cart[i].size
+                      );
+                    }} className="bx bx-x absolute right-0 top-0 text-base my-1 text-red-500 cursor-pointer"></i>
+                    <img
+                      src={products.find(product => product.slug === i)?.image}
+                      alt={cart[i].name}
+                    />       <div className="info flex flex-col justify-between">
+                      <h6 className="text-sm pt-1">{cart[i].name}</h6>
+                      <div className="content">
+                        <span className="qty text-sm">
+                          <i
+                            className="bx bxs-minus-square"
+                            onClick={() => {
+                              handleRemoveFromCart(
+                                i,
+                                1,
+                                cart[i].price,
+                                cart[i].name,
+                                cart[i].variant,
+                                cart[i].size
+                              );
+                            }}
+                          ></i>
+                          {cart[i].qty}
+                          <i
+                            className="bx bxs-plus-square"
+                            onClick={() => {
+                              handleAddToCart(
+                                i,
+                                1,
+                                cart[i].price,
+                                cart[i].name,
+                                cart[i].variant,
+                                cart[i].size
+                              );
+                            }}
+                          ></i>
+                        </span>
+                        <div className="price">₹{cart[i].price}</div>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              );
-            })}
-            {Object.keys(cart).length === 0 && (
-              <div className="empty-cart text-center my-12">
-                <i className="bx bx-shopping-bag text-6xl text-gray-500"></i>
-                <p className="text-gray-400 mt-4">Your cart is empty.</p>
-              </div>
-            )}
-          </ol>
+                  </li>
+                );
+              })}
+              {Object.keys(cart).length === 0 && (
+                <div className="empty-cart text-center my-12">
+                  <i className="bx bx-shopping-bag text-6xl text-gray-500"></i>
+                  <p className="text-gray-400 mt-4">Your cart is empty.</p>
+                </div>
+              )}
+            </ol>
+          </div>
 
           <div className="bottom-section">
             <hr />
@@ -434,15 +427,14 @@ export default function Navbar() {
               </button>
             </Link>
             {/* <Link href={}> */}
-              <button
-               onClick={() => {window.location = generateWhatsAppLink(cart)}}
-                className={` cart-checkout-btn mx-auto rounded-full text-white bg-gradient-to-r from-primary-400 to-secondary-600 border-0 disabled:opacity-60 focus:outline-none ${
-                  Object.keys(cart).length === 0 ? "" : "hover:bg-secondary-600"
+            <button
+              onClick={() => { window.location = generateWhatsAppLink(cart) }}
+              className={` cart-checkout-btn mx-auto rounded-full text-white bg-gradient-to-r from-primary-400 to-secondary-600 border-0 disabled:opacity-60 focus:outline-none ${Object.keys(cart).length === 0 ? "" : "hover:bg-secondary-600"
                 }`}
-                disabled={Object.keys(cart).length === 0}
-              >
-                <i className="bx bxl-whatsapp pt-1.5 pr-1 text-white"></i>Order Now
-              </button>
+              disabled={Object.keys(cart).length === 0}
+            >
+              <i className="bx bxl-whatsapp pt-1.5 pr-1 text-white"></i>Order Now
+            </button>
             {/* </Link> */}
           </div>
         </div>
