@@ -17,7 +17,7 @@ import {
 } from "../lib/features/cart/cartSlice";
 var jwt = require("jsonwebtoken");
 
-import Data from "../data/adminData"
+import Data from "../lib/data/adminData"
 
 export default function Navbar() {
   const [btn_one, setBtn_one] = useState("active");

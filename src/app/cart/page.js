@@ -9,7 +9,7 @@ import {
   open,
 } from "../../lib/features/cart/cartSlice";
 
-import Data from "../../data/adminData"
+import Data from "../../lib/data/adminData"
 import Link from "next/link";
 function page() {
   const dispatch = useAppDispatch();
