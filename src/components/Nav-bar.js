@@ -163,7 +163,7 @@ export default function Navbar() {
         <div className="logo-details">
           {/* <div className="style-gradient"></div> */}
           <i className="bx bxs-watch icon"></i>
-          <div className="logo_name pt-1">WatchStore</div>
+          <div className="logo_name pt-1">Paragon</div>
           <i
             onClick={() => {
               SideClickHandler();
@@ -327,7 +327,7 @@ export default function Navbar() {
           ></i>
         </div>
         <div id="mainTitle">
-          WatchStore
+          ParagonWatches
         </div>
         {/* <div className="Brand-name">
           <b>B</b>rand

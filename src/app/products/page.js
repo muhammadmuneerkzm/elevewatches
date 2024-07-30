@@ -70,6 +70,46 @@ let products = [
     </div>
   );
 })}
+{products.map((product) => {
+  return (
+    <div key={product.slug} className="card flex flex-col bg-[#1e1c1c] rounded-md pb-3">
+      <Link href={`/product/${product.slug}`}>
+      <div className="imageSection py-2 aspect-w-1 aspect-h-1">
+        <img src={product.image} alt={product.name} className="w-full h-full object-cover rounded-t-md" />
+      </div>
+      <div className="contentSection text-white">
+        <div className="title-brand p-2">
+          <div className="title text-sm lg:text-md">{truncate(product.name)}</div>
+          <div className="brand text-xs my-1 text-gray-300">{product.brand}</div>
+        </div>
+        <div className="priceSection px-2 py-1">
+          <div className="price text-md font-bold">₹ {product.price}</div>
+        </div>
+      </div>
+      </Link>
+    </div>
+  );
+})}
+{products.map((product) => {
+  return (
+    <div key={product.slug} className="card flex flex-col bg-[#1e1c1c] rounded-md pb-3">
+      <Link href={`/product/${product.slug}`}>
+      <div className="imageSection py-2 aspect-w-1 aspect-h-1">
+        <img src={product.image} alt={product.name} className="w-full h-full object-cover rounded-t-md" />
+      </div>
+      <div className="contentSection text-white">
+        <div className="title-brand p-2">
+          <div className="title text-sm lg:text-md">{truncate(product.name)}</div>
+          <div className="brand text-xs my-1 text-gray-300">{product.brand}</div>
+        </div>
+        <div className="priceSection px-2 py-1">
+          <div className="price text-md font-bold">₹ {product.price}</div>
+        </div>
+      </div>
+      </Link>
+    </div>
+  );
+})}
 </>
      {/* ))} */}
   </div>
